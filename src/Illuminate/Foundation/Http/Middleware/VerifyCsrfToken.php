@@ -59,6 +59,17 @@ class VerifyCsrfToken
     }
 
     /**
+     * Disable CSRF verification for the given URI(s).
+     *
+     * @param  string|array  $name
+     * @return void
+     */
+    public function disableFor($name)
+    {
+        $this->except = array_merge($this->except, (array) $name);
+    }
+
+    /**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
